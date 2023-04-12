@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+}
+body{
+    background-color: rgb(29, 91, 81);
+}
+.app{
+    padding-top: 5vh;
+    margin: 0 5vw 0 5vw;
+}
+
+.app>h1{
+    text-align: center;
+}
+
+.app>footer{
+    text-align: center;
+    height: 5vh;
+    margin-bottom: 2vh;
+}

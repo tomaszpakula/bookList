@@ -1,0 +1,57 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css");
+#bookPageBg{
+    left: 0;
+    top:0;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    opacity: 0.5;
+    background-color: black;
+}
+
+#bookPage{
+    display: flex;
+    z-index: 1;
+    border: 3px solid black;
+    position: fixed;
+    left: 22.5vw;
+    top: 12.5vh;
+    width: 55vw;
+    height: 75vh;
+    background-color: rgb(130, 130, 97);
+    box-shadow: 10px 10px 70px 20px black;
+}
+
+.bi ,.bi-x-lg{
+    position: absolute;
+    font-size: 5vh;
+    color: white;
+    left: calc(54vw - 6px);
+    transform: translateX(-100%);
+    top: 2vh;
+}
+
+.bi:hover, .bi-x-lg:hover{
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+#text p, #text a, #text h1, #text h2{
+    color:white;
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 2vh;
+}
+
+#text{
+    overflow-y: scroll;
+    width: 50%;
+    margin: 10vh 0 5vh 5vw;
+}
+
+#bookPage>img{
+    width: 15vw;
+    height: 40vh;
+    margin-left: calc((55vw/2 - 15vw)/2);
+    margin-top: 10vh;
+    margin-right: 5vw;
+}
