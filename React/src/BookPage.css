@@ -43,12 +43,12 @@
 }
 
 #text{
-    overflow-y: scroll;
+    overflow-y: auto;
     width: 50%;
     margin: 10vh 0 5vh 5vw;
 }
 
-#bookPage>img{
+#bookPage>img, .img-skeleton{
     width: 15vw;
     height: 40vh;
     margin-left: calc((55vw/2 - 15vw)/2);

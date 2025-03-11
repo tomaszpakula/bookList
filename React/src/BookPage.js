@@ -1,7 +1,8 @@
 import React from 'react';
 import "./BookPage.css";
 import Reviews from './Review';
-
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css';
 
 const BookPage = (props) => {
 
@@ -35,14 +36,14 @@ const BookPage = (props) => {
           <div id = "bookPage">
               <i className="bi bi-x-lg" onClick={handleClick}></i>
               <div id = "text">
-                  <h1>Title: {book.title}</h1>
-                  <h2>Author: {book.author}</h2>
-                  <p>Country of release: {book.country}</p>
-                  <p>Year of release: {book.year}</p>
-                  <p><a href = {book.link}>Link for more info</a> </p>
+                  <h1>Title: {book.title || <Skeleton />}</h1>
+                  <h2>Author: {book.author || <Skeleton />}</h2>
+                  <p>Country of release: {book.country || <Skeleton />}</p>
+                  <p>Year of release: {book.year || <Skeleton />}</p>
+                  <p><a href = {book.link || <Skeleton />}>Link for more info</a> </p>
                   <Reviews reviews = {reviews} book = {book}/>
               </div>
-              <img src = {book.imageLink}></img>
+              {book.title ? <img src = {book.imageLink}></img> : <Skeleton className='img-skeleton'/>}
           </div>
         </>
     );
