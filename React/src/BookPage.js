@@ -13,7 +13,7 @@ const BookPage = (props) => {
       .then(data=>{
         setBook(data)
       })
-    })
+    }, [props.book.key])
     
     const [reviews, setReviews] = React.useState([]);
 
@@ -23,7 +23,7 @@ const BookPage = (props) => {
       .then(data=>{
         setReviews(data);
       })
-    })
+    }, [props.book.key])
 
     const handleClick = () => {
       props.setDisplayBook(false);
