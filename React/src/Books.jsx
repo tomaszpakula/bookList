@@ -1,26 +1,34 @@
-import "./Book.css";
-import Book from "./Book"
+import Book from "./Book";
 import BookSkeleton from "./BookSkeleton";
-import { Suspense } from "react";
-import Skeleton from 'react-loading-skeleton'
-import 'react-loading-skeleton/dist/skeleton.css';
+import Grid from "@mui/material/Grid2";
 
-
-const Books = (props) =>{
-  return(
-    <div id = "books">
-      {props.books.length > 0 ? props.books.map(book => <Book book = {book} key = {book.key} setDisplayBook = {props.setDisplayBook} setLastBook = {props.setLastBook}/>)
-      : (
+const Books = (props) => {
+  return (
+    <Grid
+      container
+      rowSpacing={1}
+      columnSpacing={{ xs: 1, sm: 2, md: 3 }}
+      sx={{ paddingTop: 1 }}
+    >
+      {props.books.length > 0 ? (
+        props.books.map((book) => (
+          <Grid key={book.key} size={{ xs: 12, sm: 6, md: 4 }}>
+            <Book
+              book={book}
+              setDisplayBook={props.setDisplayBook}
+              setLastBook={props.setLastBook}
+            />
+          </Grid>
+        ))
+      ) : (
         <>
-        <BookSkeleton />
-        <BookSkeleton />
-        <BookSkeleton />
-        <BookSkeleton />
+            <BookSkeleton />
+            <BookSkeleton />
+            <BookSkeleton />
+        
         </>
-        )  
-    }
-      
-    </div>
+      )}
+    </Grid>
   );
-}
+};
 export default Books;

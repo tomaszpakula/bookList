@@ -1,22 +1,21 @@
-import "./App.css";
 import Books from "./Books";
 
 import BookPage from './BookPage';
-import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 import React from 'react';
-
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+import { Box, createTheme, CssBaseline, Paper, ThemeProvider, Typography } from "@mui/material";
 
 const App = () =>{
 
   const [books, setBooks] = React.useState([]);
-//  const [isLoaded, setIsLoaded] = React.useState(false);
-
   React.useEffect(()=>{
     fetch("http://localhost:8081/api/books")
     .then(response=>response.json())
     .then(data=>{
       setBooks(data);
-      //setIsLoaded(true);
     })
   })
 
@@ -24,15 +23,32 @@ const App = () =>{
   const [displayBook, setDisplayBook] = React.useState(false);
   const [lastBook , setLastBook] = React.useState({});
   
+  const darkTheme = createTheme({
+    palette: {
+      mode: 'dark'
+    },
+  });
+
   return (
-    <SkeletonTheme baseColor='#202020' highlightColor='#444'>
-      <div className = "app">
-        <h1>Best Books Ever List</h1>
-        {displayBook ? <BookPage book = {lastBook} setDisplayBook = {setDisplayBook} /> : ""}
+    <ThemeProvider theme = {darkTheme}>
+      <CssBaseline />
+      <Box sx={{
+        width: '80%',
+        minHeight: '100vh',
+        mx: 'auto',
+        paddingTop: 2,
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-around'
+      }}>
+        <Typography variant="h1" component="h2" sx={{textAlign: 'center'}}>Best Books Ever List</Typography>
+        <BookPage book = {lastBook} setDisplayBook = {setDisplayBook} displayBook = {displayBook} />
+        
         <Books books = {books} setDisplayBook = {setDisplayBook} setLastBook = {setLastBook}/>
-        <footer>Author: Tomasz Pakuła</footer>
-      </div>
-    </SkeletonTheme>
+  
+        <Box sx={{padding: 2, textAlign: 'center'}}><footer>Author: Tomasz Pakuła</footer></Box>
+      </Box>
+      </ThemeProvider>
   );
   }
 
