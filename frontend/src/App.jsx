@@ -12,7 +12,7 @@ const App = () =>{
   const apiUrl = process.env.REACT_APP_API_URL;
   const [books, setBooks] = React.useState([]);
   React.useEffect(()=>{
-    fetch(`${apiUrl}/api/books`)
+    fetch(`https://booklist-h75d.onrender.com/api/books`)
     .then(response=>response.json())
     .then(data=>{
       setBooks(data);

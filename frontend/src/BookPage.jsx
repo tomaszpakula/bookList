@@ -15,7 +15,7 @@ const BookPage = (props) => {
   const apiUrl = process.env.REACT_APP_API_URL;
   React.useEffect(() => {
     if (!props.book?.key) return;
-    fetch(`${apiUrl}/api/books/` + props.book.key)
+    fetch(`https://booklist-h75d.onrender.com/api/books/` + props.book.key)
       .then((response) => response.json())
       .then((data) => {
         setBook(data);
@@ -26,7 +26,7 @@ const BookPage = (props) => {
 
   React.useEffect(() => {
     if (!props.book?.key) return;
-    fetch(`${apiUrl}/api/reviews/` + props.book.key)
+    fetch(`https://booklist-h75d.onrender.com//api/reviews/` + props.book.key)
       .then((response) => response.json())
       .then((data) => {
         setReviews(data);
