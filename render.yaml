@@ -1,0 +1,21 @@
+services:
+  - name: backend
+    type: web
+    runtime: docker
+    repo: https://github.com/tomaszpakula/bookList
+    branch: main
+    dockerfilePath: backend/Dockerfile
+    envVars:
+      - key: SERVER_PORT
+        value: 8080
+    healthCheckPath: /actuator/health
+
+  - name: frontend
+    type: web
+    runtime: docker
+    repo: https://github.com/tomaszpakula/bookList
+    branch: main
+    dockerfilePath: frontend/Dockerfile
+    envVars:
+      - key: REACT_APP_API_URL
+        value: https://backend.onrender.com
