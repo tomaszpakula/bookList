@@ -12,10 +12,10 @@ import {
 import CloseIcon from "@mui/icons-material/Close";
 const BookPage = (props) => {
   const [book, setBook] = React.useState({});
-
+  const apiUrl = process.env.REACT_APP_API_URL;
   React.useEffect(() => {
     if (!props.book?.key) return;
-    fetch("http://localhost:8081/api/books/" + props.book.key)
+    fetch(`${apiUrl}/api/books/` + props.book.key)
       .then((response) => response.json())
       .then((data) => {
         setBook(data);
@@ -26,7 +26,7 @@ const BookPage = (props) => {
 
   React.useEffect(() => {
     if (!props.book?.key) return;
-    fetch("http://localhost:8081/api/reviews/" + props.book.key)
+    fetch(`${apiUrl}/api/reviews/` + props.book.key)
       .then((response) => response.json())
       .then((data) => {
         setReviews(data);

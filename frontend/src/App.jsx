@@ -6,13 +6,13 @@ import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
-import { Box, createTheme, CssBaseline, Paper, ThemeProvider, Typography } from "@mui/material";
+import { Box, createTheme, CssBaseline, ThemeProvider, Typography } from "@mui/material";
 
 const App = () =>{
-
+  const apiUrl = process.env.REACT_APP_API_URL;
   const [books, setBooks] = React.useState([]);
   React.useEffect(()=>{
-    fetch("http://localhost:8081/api/books")
+    fetch(`${apiUrl}/api/books`)
     .then(response=>response.json())
     .then(data=>{
       setBooks(data);

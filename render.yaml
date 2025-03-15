@@ -18,4 +18,4 @@ services:
     dockerfilePath: frontend/Dockerfile
     envVars:
       - key: REACT_APP_API_URL
-        value: https://backend.onrender.com
+        value: https://booklist-h75d.onrender.com
