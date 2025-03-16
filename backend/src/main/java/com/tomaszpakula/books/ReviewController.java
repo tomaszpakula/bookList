@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
 
-@CrossOrigin(origins = "https://booklist-1-ns7d.onrender.com/")
+@CrossOrigin(origins = "https://booklist-1-ns7d.onrender.com")
 @RestController
 @RequestMapping("/api/reviews")
 public class ReviewController {

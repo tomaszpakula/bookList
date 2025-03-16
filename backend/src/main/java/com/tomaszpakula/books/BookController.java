@@ -10,7 +10,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/books")
-@CrossOrigin(origins = "https://booklist-1-ns7d.onrender.com/")
+@CrossOrigin(origins = "https://booklist-1-ns7d.onrender.com")
 public class BookController {
     @Autowired
     BookService bookService;
