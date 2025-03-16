@@ -12,7 +12,6 @@ import {
 import CloseIcon from "@mui/icons-material/Close";
 const BookPage = (props) => {
   const [book, setBook] = React.useState({});
-  const apiUrl = process.env.REACT_APP_API_URL;
   React.useEffect(() => {
     if (!props.book?.key) return;
     fetch(`https://booklist-h75d.onrender.com/api/books/` + props.book.key)
@@ -46,20 +45,29 @@ const BookPage = (props) => {
               xs: "100%",
               sm: "90%",
               md: "60%",
-              lg: "50%"
+              lg: "50%",
             },
-            maxHeight:'80%',
+            maxHeight: "80%",
             display: "flex",
-            padding: 6,
+            paddingTop: 5,
+            paddingRight: 1,
             justifyContent: "space-between",
-            position: 'relative',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%,-50%)',
-            overflow: 'auto',
+            position: "relative",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%,-50%)",
+            overflow: "auto",
           }}
         >
-          <CardContent sx={{ padding: 3, width: "50%" }}>
+          <CardContent
+            sx={{
+              padding: 3,
+              width: 200,
+              flexShrink: 0,
+              flexGrow: 1,
+              flexWrap: "wrap",
+            }}
+          >
             <IconButton
               onClick={handleClose}
               sx={{
@@ -70,10 +78,16 @@ const BookPage = (props) => {
             >
               <CloseIcon />
             </IconButton>
-            <Typography variant = "h5">Title: {book.title || <Skeleton />}</Typography>
-            <Typography variant = "h6">Author: {book.author || <Skeleton />}</Typography>
-            <Typography>Country of release: {book.country || <Skeleton />}</Typography>
-            <Typography>Year of release: {book.year || <Skeleton />}</Typography>
+            <Typography variant="h5">{book.title || <Skeleton />}</Typography>
+            <Typography variant="h6">
+              Author: {book.author || <Skeleton />}
+            </Typography>
+            <Typography>
+              Country of release: {book.country || <Skeleton />}
+            </Typography>
+            <Typography>
+              Year of release: {book.year || <Skeleton />}
+            </Typography>
             <Typography>
               <a href={book.link || <Skeleton />}>Link for more info</a>{" "}
             </Typography>
@@ -81,7 +95,12 @@ const BookPage = (props) => {
           </CardContent>
           {book?.title ? (
             <CardMedia
-              sx={{ width: 150, height: 190, marginTop: 3 }}
+              sx={{
+                width: 150,
+                height: 190,
+                marginTop: 3,
+                flexShrink: 1,
+              }}
               image={book.imageLink}
               title={book.title}
             />

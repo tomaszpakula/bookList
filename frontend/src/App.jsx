@@ -9,7 +9,6 @@ import '@fontsource/roboto/700.css';
 import { Box, createTheme, CssBaseline, ThemeProvider, Typography } from "@mui/material";
 
 const App = () =>{
-  const apiUrl = process.env.REACT_APP_API_URL;
   const [books, setBooks] = React.useState([]);
   React.useEffect(()=>{
     fetch(`https://booklist-h75d.onrender.com/api/books`)
